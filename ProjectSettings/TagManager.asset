@@ -4,7 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Shop
   - Enemy
+  - LevelTrigger
   layers:
   - Default
   - TransparentFX
@@ -12,9 +14,9 @@ TagManager:
   - 
   - Water
   - UI
+  - Passable Structures
   - Player
-  - PlayerProjectile
-  - 
+  - Unpassable Structures
   - 
   - 
   - 
