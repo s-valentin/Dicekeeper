@@ -73,11 +73,15 @@ public class PlayerAttack : MonoBehaviour
         if (spellCharge > maxSpellCharge)
             spellCharge = maxSpellCharge;
 
+        float projectileSpeed = spellCharge + spellPower;
+        float projectileDamage = spellCharge * spellPower;
+
         float angle = Utility.AngleTowardsMouse(book.position);
         Quaternion rot = Quaternion.Euler(new Vector3(0f, 0f, angle - 90f)); // rotates the projectile to the right
 
         Projectile projectile = Instantiate(projectilePrefab, book.position, rot).GetComponent<Projectile>();
-        projectile.projectileVelocity = 5f;
+        projectile.projectileVelocity = projectileSpeed;
+        projectile.projectileDamage = projectileDamage;
 
         canFire = false;
         projectileGFX.enabled = false;

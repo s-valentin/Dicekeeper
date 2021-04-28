@@ -5,6 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [HideInInspector] public float projectileVelocity;
+    [HideInInspector] public float projectileDamage;
     [SerializeField] Rigidbody2D rb;
 
     private void Start()
@@ -19,6 +20,11 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(gameObject);
+        if(collision.gameObject.tag == "Enemy")
+        {
+            Destroy(gameObject);
+            EnemyHealth enemy = collision.gameObject.GetComponent<EnemyHealth>();
+            enemy.takeDamage(projectileDamage);
+        }
     }
 }
