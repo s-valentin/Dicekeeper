@@ -19,7 +19,6 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.gameObject.tag);
         if (collision.gameObject.tag == "Player")
             target = collision.transform;
     }
@@ -29,5 +28,7 @@ public class EnemyMovement : MonoBehaviour
         if(collision.gameObject.tag == "Player")
             target = null;
     }
+
+    
 
 }

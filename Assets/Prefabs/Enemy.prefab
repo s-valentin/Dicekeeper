@@ -437,6 +437,7 @@ MonoBehaviour:
   health: 0
   maxHealth: 100
   slider: {fileID: 5903028111530039348}
+  deathEffect: {fileID: 3113205309374793408, guid: 0eee9baec6fa3e74f8babf6b07b6e099, type: 3}
 --- !u!1 &5903028112715854216
 GameObject:
   m_ObjectHideFlags: 0
