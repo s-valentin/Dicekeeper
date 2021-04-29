@@ -9,6 +9,8 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private float maxHealth;
     [SerializeField] private Slider slider;
 
+    public GameObject deathEffect;
+
 
     private void Start()
     {
@@ -25,6 +27,7 @@ public class EnemyHealth : MonoBehaviour
 
         if (health <= 0)
         {
+            Instantiate(deathEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

@@ -11,10 +11,9 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] Slider spellPowerSlider;
     [SerializeField] Transform book;
 
-    [Range(0, 10)]
     [SerializeField] float spellPower;
 
-    [Range(0, 3)]
+    [Range(0, 2)]
     [SerializeField] float maxSpellCharge;
 
     float spellCharge;
