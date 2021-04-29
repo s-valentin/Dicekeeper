@@ -26,5 +26,9 @@ public class Projectile : MonoBehaviour
             EnemyHealth enemy = collision.gameObject.GetComponent<EnemyHealth>();
             enemy.takeDamage(projectileDamage);
         }
+        if(collision.gameObject.tag == "Wall")
+        {
+            Destroy(gameObject);
+        }
     }
 }
