@@ -40,10 +40,10 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    // Not working!
-    /*private bool Remove(Item item)
+
+    private bool Remove()
     {
-        for (int i = 0; i < itemList.Length; i++)
+        for (int i = itemList.Length-1; i >= 0; i--)
         {
             if (itemList[i] != null)
             {
@@ -55,15 +55,16 @@ public class Inventory : MonoBehaviour
         return false;
     }
 
-    public void RemoveItem(Item item)
+    public void RemoveItem()
     {
-        bool hasBeenRemoved = Remove(item);
+        
+        bool hasBeenRemoved = Remove();
 
         if (hasBeenRemoved)
         {
             UpdateSlotUI();
         }
     }
-    */
+    
 
 }
