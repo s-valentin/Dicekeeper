@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Transform transform;
-
     [Header("Movement variables")]
     private Rigidbody2D rb;
 
@@ -31,12 +29,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Slider dashSlider;
 
     private Vector3 playerVelocity = Vector3.zero;
+
+    private CircleCollider2D circleCollider;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        circleCollider = GetComponent<CircleCollider2D>();
         dashSlider.maxValue = dashCooldown;
         dashSlider.value = dashCooldown;
-        transform = GetComponent<Transform>();
     }
 
     private void Update()
@@ -107,6 +107,7 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(blinkTime);
         CameraShake.instance.ShakeCamera(1f, .2f);
         rb.position = dashPosition;
+        circleCollider.enabled = true;
 
         yield return new WaitForSeconds(blinkTime);
 
@@ -117,6 +118,8 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = Vector3.Lerp(actualScale, targetScale, t);
             yield return null;
         }
+        yield return new WaitForSeconds(0.5f);
+        circleCollider.enabled = false;
 
     }
 
