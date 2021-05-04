@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private Transform transform;
+
     [Header("Movement variables")]
     private Rigidbody2D rb;
 
@@ -21,17 +23,20 @@ public class PlayerMovement : MonoBehaviour
 
     public GameObject dashEffect;
 
-    private float dashCooldown = 3f;
+    private float dashCooldown = 2f;
     private float nextDash = 0f;
 
-    private float blinkTime = .1f;
+    private float blinkTime = .05f;
 
     [SerializeField] Slider dashSlider;
+
+    private Vector3 playerVelocity = Vector3.zero;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         dashSlider.maxValue = dashCooldown;
         dashSlider.value = dashCooldown;
+        transform = GetComponent<Transform>();
     }
 
     private void Update()
@@ -73,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
                 dashPosition = raycastHit2d.point;
 
             // Aici ii modific pozitia direct, pentru ca e blink 
-            StartCoroutine(blinkTimer(dashPosition));
+            StartCoroutine(blink(dashPosition));
 
             // Imi sterg instanta de gameObject facuta, dupa o secunda;
             StartCoroutine(SelfDestruct(clone));
@@ -84,33 +89,34 @@ public class PlayerMovement : MonoBehaviour
             
     }
 
-    IEnumerator blinkTimer(Vector2 dashPosition)
+    IEnumerator blink(Vector2 dashPosition)
     {
-        // Scad putin cate putin marimea player-ului, la intervale mici de timp
-        transform.localScale = new Vector3(.65f, .65f, .65f);
-        yield return new WaitForSeconds(0.03f);
-        transform.localScale = new Vector3(.55f, .5f, .5f);
-        yield return new WaitForSeconds(0.03f);
-        transform.localScale = new Vector3(.35f, .35f, .35f);
-        yield return new WaitForSeconds(0.03f);
-        transform.localScale = new Vector3(.25f, .25f, .25f);
 
-        // Aici se intampla blink-ul si camera shake-ul
+        float scaleDuration = .1f;                                //animation duration in seconds
+        Vector3 actualScale = transform.localScale;             // scale of the object at the begining of the animation
+        Vector3 targetScale = new Vector3(0.10f, 0.10f, 0.5f);     // scale of the object at the end of the animation
+
+        for (float t = 0; t < 1; t += Time.deltaTime / scaleDuration)
+        {
+            transform.localScale = Vector3.Lerp(actualScale, targetScale, t);
+            yield return null;
+        }
+
+
+        // Aici se intampla blink-ul si camera shake-ul 
         yield return new WaitForSeconds(blinkTime);
         CameraShake.instance.ShakeCamera(1f, .2f);
         rb.position = dashPosition;
 
-        // Cresc marimea player-ului, la intervale mici de timp, pana la marimea initiala
-        yield return new WaitForSeconds(0.04f);
-        transform.localScale = new Vector3(.35f, .35f, .35f);
-        yield return new WaitForSeconds(0.04f);
-        transform.localScale = new Vector3(.55f, .5f, .5f);
-        yield return new WaitForSeconds(0.04f);
-        transform.localScale = new Vector3(.65f, .65f, .65f);
-        yield return new WaitForSeconds(0.02f);
-        transform.localScale = new Vector3(.75f, .75f, .75f);
+        yield return new WaitForSeconds(blinkTime);
 
-        
+        targetScale = new Vector3(0.75f, 0.75f, 0.75f);
+        actualScale = transform.localScale;
+        for (float t = 0; t < 1; t += Time.deltaTime / scaleDuration)
+        {
+            transform.localScale = Vector3.Lerp(actualScale, targetScale, t);
+            yield return null;
+        }
 
     }
 
