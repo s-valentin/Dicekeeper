@@ -2,12 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FlameWall : MonoBehaviour
 {
     [SerializeField] GameObject flameWallPrefab;
-    //[SerializeField] SpriteRenderer flameWallGFX;
     [SerializeField] Transform book;
+
+    [SerializeField] SpriteRenderer rangeIndicator;
 
     private float spellPower = 3f;
 
@@ -18,13 +20,29 @@ public class FlameWall : MonoBehaviour
     {
         if (Input.GetMouseButton(1) && Time.time > nextFireTime)
         {
-            FireSpell();
+
             nextFireTime = Time.time + fireCooldown;
+            Vector3 mousePosition = Input.mousePosition;
+            mousePosition.z = 2.0f;
+            //Debug.Log(mousePosition.x + " " + mousePosition.y);
+
+            
+
+            Vector3 objectPosition;
+            objectPosition = Camera.main.ScreenToWorldPoint(mousePosition);
+            if(Vector3.Distance(objectPosition, transform.position) < 13.5)
+                FireSpell(objectPosition);
+            else
+            {
+                StartCoroutine(showRange());
+            }
         }
     }
 
-    private void FireSpell()
+
+    private void FireSpell(Vector3 objectPosition)
     {
+        Debug.Log(objectPosition);
         //flameWallGFX.enabled = true;
 
         float damage = spellPower;
@@ -32,7 +50,14 @@ public class FlameWall : MonoBehaviour
         float angle = Utility.AngleTowardsMouse(book.position);
         Quaternion rot = Quaternion.Euler(new Vector3(0f, 0f, angle));
 
-        Wall flameWall = Instantiate(flameWallPrefab, book.position, rot).GetComponent<Wall>();
+        Wall flameWall = Instantiate(flameWallPrefab, objectPosition, rot).GetComponent<Wall>();
         flameWall.flameWallDamage = damage;
+    }
+
+    IEnumerator showRange()
+    {
+        rangeIndicator.enabled = true;
+        yield return new WaitForSeconds(0.75f);
+        rangeIndicator.enabled = false;
     }
 }

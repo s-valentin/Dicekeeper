@@ -24,7 +24,7 @@ public class EnemyMovement : MonoBehaviour
         {
             float distance = Vector3.Distance(transform.position, target.position);
             Debug.Log(distance);
-            if (distance > 1)
+            if (distance > 0.84)
             {
                 rb.isKinematic = false;
                 float step = movementSpeed * Time.deltaTime;
