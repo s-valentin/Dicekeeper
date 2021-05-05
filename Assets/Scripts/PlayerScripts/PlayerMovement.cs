@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Animation variables")]
+    public Animator animator;
+
     [Header("Movement variables")]
     private Rigidbody2D rb;
 
@@ -31,6 +34,9 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 playerVelocity = Vector3.zero;
 
     private CircleCollider2D circleCollider;
+
+    public GameObject DashRune;
+    
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -44,8 +50,13 @@ public class PlayerMovement : MonoBehaviour
         // Movement part
         float movementX = Input.GetAxisRaw("Horizontal");
         float movementY = Input.GetAxisRaw("Vertical");
-       
+
         moveDirection = new Vector2(movementX, movementY).normalized;
+
+        animator.SetFloat("Horizontal", movementX);
+        animator.SetFloat("Vertical", movementY);
+        animator.SetFloat("Speed", moveDirection.sqrMagnitude);
+
 
         // Dash cooldown and key input
         dashSlider.value = nextDash - Time.time;
@@ -67,8 +78,9 @@ public class PlayerMovement : MonoBehaviour
         if (isDashButtonDown)
         {
             // Creates the particles
-            var clone = Instantiate(dashEffect, transform.position, Quaternion.identity);
-    
+            var clone = Instantiate(dashEffect, transform.position, Quaternion.identity); 
+            var dashRune = Instantiate(DashRune, transform.position, Quaternion.identity);
+
             // Verific daca ma lovesc de pereti/obiecte/whatever vrei tu
             Vector3 dashPosition = transform.position + moveDirection * dashSpeed;
 
@@ -81,7 +93,7 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(blink(dashPosition));
 
             // Imi sterg instanta de gameObject facuta, dupa o secunda;
-            StartCoroutine(SelfDestruct(clone));
+            StartCoroutine(SelfDestruct(clone, dashRune));
 
             isDashButtonDown = false;
             
@@ -111,7 +123,7 @@ public class PlayerMovement : MonoBehaviour
 
         yield return new WaitForSeconds(blinkTime);
 
-        targetScale = new Vector3(0.75f, 0.75f, 0.75f);
+        targetScale = new Vector3(1f, 1f, 1f);
         actualScale = transform.localScale;
         for (float t = 0; t < 1; t += Time.deltaTime / scaleDuration)
         {
@@ -119,13 +131,14 @@ public class PlayerMovement : MonoBehaviour
             yield return null;
         }
         yield return new WaitForSeconds(0.5f);
-        circleCollider.enabled = false;
+        circleCollider.enabled = false; 
 
     }
 
-    IEnumerator SelfDestruct(GameObject clone)
+    IEnumerator SelfDestruct(GameObject clone, GameObject dashRune)
     {
         yield return new WaitForSeconds(1f);
         Destroy(clone);
+        Destroy(dashRune);
     }
 }
