@@ -38,6 +38,8 @@ public class CameraShake : MonoBehaviour
                     cinemachineVirtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
 
                 cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = 0f;
+
+                cinemachineVirtualCamera.transform.rotation = Quaternion.Euler(Vector3.zero);
             }
         }
     }

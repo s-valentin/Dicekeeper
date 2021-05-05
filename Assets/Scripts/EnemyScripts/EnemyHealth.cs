@@ -17,8 +17,6 @@ public class EnemyHealth : MonoBehaviour
         health = maxHealth;
         slider.maxValue = maxHealth;
         slider.value = health;
-
-        
     }
 
     public void takeDamage(float damage)

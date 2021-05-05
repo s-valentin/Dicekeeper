@@ -10,7 +10,7 @@ public class Projectile : MonoBehaviour
 
     private void Start()
     {
-        Destroy(gameObject, 4f);        
+        Destroy(gameObject, 3f);
     }
 
     private void FixedUpdate()
@@ -20,15 +20,20 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy")
         {
             Destroy(gameObject);
             EnemyHealth enemy = collision.gameObject.GetComponent<EnemyHealth>();
             enemy.takeDamage(projectileDamage);
         }
-        if(collision.gameObject.tag == "Wall")
+        if (collision.gameObject.tag == "Wall")
         {
             Destroy(gameObject);
+        }
+        if (collision.gameObject.tag == "Player")
+        {
+            Destroy(gameObject);
+
         }
     }
 }

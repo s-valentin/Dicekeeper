@@ -8,7 +8,7 @@ public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] SpriteRenderer projectileGFX;
-    [SerializeField] Slider spellPowerSlider;
+    [SerializeField] Slider spellChargeSlider;
     [SerializeField] Transform book;
 
     [SerializeField] float spellPower;
@@ -22,23 +22,23 @@ public class PlayerAttack : MonoBehaviour
 
     private void Start()
     {
-        spellPowerSlider.value = 0f;
-        spellPowerSlider.maxValue = maxSpellCharge;
+        spellChargeSlider.value = 0f;
+        spellChargeSlider.maxValue = maxSpellCharge;
     }
 
     private void Update()
     {
-        if(Input.GetMouseButton(0) && canFire)
+        if (Input.GetMouseButton(0) && canFire)
         {
             ChargeSpell();
-        } 
-        else if(Input.GetMouseButtonUp(0) && canFire)
+        }
+        else if (Input.GetMouseButtonUp(0) && canFire)
         {
             FireSpell();
         }
         else
         {
-            if(spellCharge > 0f)
+            if (spellCharge > 0f)
             {
                 spellCharge -= 1f * Time.deltaTime;
             }
@@ -48,8 +48,8 @@ public class PlayerAttack : MonoBehaviour
                 canFire = true;
             }
 
-            spellPowerSlider.value = spellCharge;
-            
+            spellChargeSlider.value = spellCharge;
+
         }
     }
 
@@ -58,11 +58,11 @@ public class PlayerAttack : MonoBehaviour
         projectileGFX.enabled = true;
         spellCharge += Time.deltaTime;
 
-        spellPowerSlider.value = spellCharge;
+        spellChargeSlider.value = spellCharge;
 
-        if(spellCharge > maxSpellCharge)
+        if (spellCharge > maxSpellCharge)
         {
-            spellPowerSlider.value = maxSpellCharge;
+            spellChargeSlider.value = maxSpellCharge;
         }
     }
 
