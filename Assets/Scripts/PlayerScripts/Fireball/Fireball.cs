@@ -6,47 +6,53 @@ using UnityEngine.UI;
 public class Fireball : MonoBehaviour
 {
     [SerializeField] GameObject projectilePrefab;
-    [SerializeField] SpriteRenderer projectileGFX;
     [SerializeField] Transform book;
-    [SerializeField] Slider spellSlider; 
-
+    [SerializeField] Image fireballImage;
 
     [SerializeField] float spellPower = 25f;
     [SerializeField] float spellSpeed = 6f;
 
     [SerializeField] float fireCooldown = 2f;
-    float nextFireTime = 0f;
+    bool isCooldown = false;
 
     private void Awake()
     {
-        spellSlider.maxValue = fireCooldown;
+
     }
 
     private void Update()
     {
-        spellSlider.value = nextFireTime - Time.time;
-        if (Input.GetMouseButton(0) && Time.time > nextFireTime)
+        if (Input.GetMouseButton(0) && !isCooldown)
         {
             FireSpell();
-            nextFireTime = Time.time + fireCooldown;
+            isCooldown = true;
+            fireballImage.fillAmount = 1f;
         }       
+
+        if(isCooldown)
+        {
+            fireballImage.fillAmount -= 1 / fireCooldown * Time.deltaTime;
+            if(fireballImage.fillAmount <= 0)
+            {
+                fireballImage.fillAmount = 0f;
+                isCooldown = false;
+            }
+        }
     }
 
     private void FireSpell()
     {
-        projectileGFX.enabled = true;
 
         float projectileSpeed = spellSpeed;
         float projectileDamage = spellPower;
 
         float angle = Utility.AngleTowardsMouse(book.position);
-        Quaternion rot = Quaternion.Euler(new Vector3(0f, 0f, angle - 90f)); // rotates the projectile to the right
+        Quaternion rot = Quaternion.Euler(new Vector3(0f, 0f, angle));
 
         Projectile projectile = Instantiate(projectilePrefab, book.position, rot).GetComponent<Projectile>();
         projectile.projectileVelocity = projectileSpeed;
         projectile.projectileDamage = projectileDamage;
 
-        projectileGFX.enabled = false;
     }
 
 }

@@ -33,14 +33,11 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 playerVelocity = Vector3.zero;
 
-    private CircleCollider2D circleCollider;
-
     public GameObject DashRune;
     
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        circleCollider = GetComponent<CircleCollider2D>();
         dashSlider.maxValue = dashCooldown;
         dashSlider.value = dashCooldown;
     }
@@ -119,7 +116,6 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(blinkTime);
         CameraShake.instance.ShakeCamera(1f, .2f);
         rb.position = dashPosition;
-        circleCollider.enabled = true;
 
         yield return new WaitForSeconds(blinkTime);
 
@@ -131,7 +127,6 @@ public class PlayerMovement : MonoBehaviour
             yield return null;
         }
         yield return new WaitForSeconds(0.5f);
-        circleCollider.enabled = false; 
 
     }
 
