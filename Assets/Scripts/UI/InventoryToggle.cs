@@ -4,20 +4,33 @@ using UnityEngine;
 
 public class InventoryToggle : MonoBehaviour
 {
+
+    //Still working on this.
+    
     public GameObject inventory;
-    private bool isShowing;
+    public GameObject Panel;
+    Animator animator;
+    bool isOpen;
+
+    void Start()
+    {
+        animator = gameObject.GetComponent<Animator>();
+    }
+
+    public void OpenInventory()
+    {
+        isOpen = animator.GetBool("open");
+        animator.SetBool("open", !isOpen);
+        animator.Play("open");
+        
+    }
 
     void Update()
     {
-        if(Input.GetKeyDown("i") && isShowing == true)
+        if (Input.GetKeyDown(KeyCode.I))
         {
-            inventory.SetActive(false);
-            isShowing = false;
-        }else
-        if (Input.GetKeyDown("i") && isShowing == false)
-        {
-            inventory.SetActive(true);
-            isShowing = true;
+            OpenInventory();
+            inventory.SetActive(!isOpen);
         }
     }
 }
