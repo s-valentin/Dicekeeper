@@ -15,6 +15,6 @@ public class PlayerBook : MonoBehaviour
     void rotateBook()
     {
         float angle = Utility.AngleTowardsMouse(book.position);
-        book.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
+        book.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle-90f));
     }
 }

@@ -6,21 +6,34 @@ public class Wall : MonoBehaviour
 {
 
     [HideInInspector] public float flameWallDamage;
-
-    [SerializeField] float damageFrequency = 0.3f;
-    float nextDamage = 0f;
-
+    private CircleCollider2D circleCollider2D;
     private void Start()
     {
-        Destroy(gameObject, 6f);
+        circleCollider2D = GetComponent<CircleCollider2D>();
+        Destroy(gameObject, 0.733f);
     }
 
-    private void FixedUpdate()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        StartCoroutine(disableCollider());
+        if (collision.gameObject.tag == "Enemy")
+        {
+            EnemyHealth enemy = collision.gameObject.GetComponent<EnemyHealth>();
+            enemy.takeDamage(flameWallDamage);
+        }
+        if (collision.gameObject.tag == "Wall")
+        {
+            Destroy(gameObject);
+        }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    IEnumerator disableCollider()
+    {
+        yield return new WaitForSeconds(0.2f);
+        circleCollider2D.enabled = false;
+    }
+
+    /*private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy" && !collision.isTrigger)
         {
@@ -44,5 +57,5 @@ public class Wall : MonoBehaviour
                 nextDamage = Time.time + damageFrequency;
             }
         }
-    }
+    }*/
 }

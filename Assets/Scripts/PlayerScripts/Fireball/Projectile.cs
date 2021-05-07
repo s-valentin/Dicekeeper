@@ -8,14 +8,15 @@ public class Projectile : MonoBehaviour
     [HideInInspector] public float projectileDamage;
     [SerializeField] Rigidbody2D rb;
 
+
     private void Start()
     {
-        Destroy(gameObject, 3f);
+        Destroy(gameObject, 3f);    
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = transform.up * projectileVelocity;
+        rb.velocity = transform.right * projectileVelocity;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

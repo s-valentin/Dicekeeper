@@ -8,33 +8,45 @@ public class FlameWall : MonoBehaviour
 {
     [SerializeField] GameObject flameWallPrefab;
     [SerializeField] Transform book;
+    [SerializeField] Image flameWallImage;
 
     [SerializeField] SpriteRenderer rangeIndicator;
 
     private float spellPower = 3f;
 
     [SerializeField] float fireCooldown = 2f;
-    float nextFireTime = 0f;
+    bool isCooldown = false;
 
     private void Update()
     {
-        if (Input.GetMouseButton(1) && Time.time > nextFireTime)
+        if (Input.GetMouseButton(1) && !isCooldown)
         {
-
-            nextFireTime = Time.time + fireCooldown;
+            
             Vector3 mousePosition = Input.mousePosition;
             mousePosition.z = 2.0f;
             //Debug.Log(mousePosition.x + " " + mousePosition.y);
 
-            
-
             Vector3 objectPosition;
             objectPosition = Camera.main.ScreenToWorldPoint(mousePosition);
-            if(Vector3.Distance(objectPosition, transform.position) < 13.5)
+            if (Vector3.Distance(objectPosition, transform.position) < 13.5)
+            {
                 FireSpell(objectPosition);
+                isCooldown = true; 
+                flameWallImage.fillAmount = 1f;
+            }
             else
             {
                 StartCoroutine(showRange());
+            }
+        }
+
+        if (isCooldown)
+        {
+            flameWallImage.fillAmount -= 1 / fireCooldown * Time.deltaTime;
+            if(flameWallImage.fillAmount <= 0f)
+            {
+                flameWallImage.fillAmount = 0f;
+                isCooldown = false;
             }
         }
     }
@@ -51,6 +63,7 @@ public class FlameWall : MonoBehaviour
         Quaternion rot = Quaternion.Euler(new Vector3(0f, 0f, angle));
 
         Wall flameWall = Instantiate(flameWallPrefab, objectPosition, rot).GetComponent<Wall>();
+        CameraShake.instance.ShakeCamera(.7f, .35f);
         flameWall.flameWallDamage = damage;
     }
 
