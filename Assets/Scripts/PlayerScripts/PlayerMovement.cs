@@ -63,7 +63,6 @@ public class PlayerMovement : MonoBehaviour
             isDashButtonDown = true;
             nextDash = Time.time + dashCooldown;
         }
-    
     }
 
     private void FixedUpdate()

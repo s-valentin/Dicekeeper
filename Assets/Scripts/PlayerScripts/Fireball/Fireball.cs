@@ -50,6 +50,7 @@ public class Fireball : MonoBehaviour
         Quaternion rot = Quaternion.Euler(new Vector3(0f, 0f, angle));
 
         Projectile projectile = Instantiate(projectilePrefab, book.position, rot).GetComponent<Projectile>();
+        CameraShake.instance.ShakeCamera(1f, .2f);
         projectile.projectileVelocity = projectileSpeed;
         projectile.projectileDamage = projectileDamage;
 

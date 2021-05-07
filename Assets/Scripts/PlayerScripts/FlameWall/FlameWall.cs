@@ -63,6 +63,7 @@ public class FlameWall : MonoBehaviour
         Quaternion rot = Quaternion.Euler(new Vector3(0f, 0f, angle));
 
         Wall flameWall = Instantiate(flameWallPrefab, objectPosition, rot).GetComponent<Wall>();
+        CameraShake.instance.ShakeCamera(.7f, .35f);
         flameWall.flameWallDamage = damage;
     }
 
