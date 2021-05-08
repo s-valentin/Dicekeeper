@@ -5,19 +5,19 @@ using UnityEngine;
 public class ShopInventorySlots : MonoBehaviour
 {
     public Item item;
-    public GameObject icon;
+    public GameObject itemInGame;
 
 
     public void UpdateSlot()
     {
         if (item != null)
         {
-            icon.GetComponent<SpriteRenderer>().sprite = item.icon;
-            icon.SetActive(true);
+            itemInGame.GetComponent<SpriteRenderer>().sprite = item.icon;
+            itemInGame.SetActive(true);
         }
         else
         {
-            icon.SetActive(false);
+            itemInGame.SetActive(false);
         }
     }
 }

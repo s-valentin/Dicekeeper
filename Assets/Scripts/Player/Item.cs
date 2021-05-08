@@ -8,7 +8,7 @@ public class Item : ScriptableObject
     public string itemName = "New Item";
     public string itemDescription = "New Description";
     public Sprite icon;
-    public int price = 0;
+    public float price = 0f;
     public enum Type { Default, Consumable, Weapon, Ammunition }
     public Type type = Type.Default;
 }

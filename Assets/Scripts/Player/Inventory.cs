@@ -7,6 +7,7 @@ public class Inventory : MonoBehaviour
 
     public Item[] itemList = new Item[9];
     public List<InventorySlot> inventorySlots = new List<InventorySlot>();
+    public ShopInventory si;
 
     private bool Add(Item item)
     {
@@ -61,6 +62,31 @@ public class Inventory : MonoBehaviour
         bool hasBeenRemoved = Remove();
 
         if (hasBeenRemoved)
+        {
+            UpdateSlotUI();
+        }
+    }
+
+    public bool Sell(int index)
+    {
+        for (int i = 0; i < itemList.Length; i++)
+        {
+            if (itemList[i] != null && i == index)
+            {
+                si.AddItem(itemList[i]);
+                itemList[i] = null;
+                inventorySlots[i].item = null;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void SellItem(int index)
+    {
+        bool hasBeenSold = Sell(index);
+
+        if (hasBeenSold)
         {
             UpdateSlotUI();
         }

@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class InventorySlot : MonoBehaviour
 {
-    public Inventory inventory;
     public Item item;
     public GameObject icon;
 
@@ -21,12 +20,5 @@ public class InventorySlot : MonoBehaviour
             icon.SetActive(false);
         }
     }
-
-    // Not working
-    /*private void OnMouseDown()
-    {
-        inventory.RemoveItem(item);
-    }
-    */
 
 }
