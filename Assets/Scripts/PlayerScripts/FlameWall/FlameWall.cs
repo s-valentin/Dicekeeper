@@ -17,6 +17,11 @@ public class FlameWall : MonoBehaviour
     [SerializeField] float fireCooldown = 2f;
     bool isCooldown = false;
 
+    private void Awake()
+    {
+        flameWallImage.fillAmount = 0f;
+    }
+
     private void Update()
     {
         if (Input.GetMouseButton(1) && !isCooldown)

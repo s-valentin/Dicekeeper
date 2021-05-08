@@ -17,7 +17,7 @@ public class Fireball : MonoBehaviour
 
     private void Awake()
     {
-
+        fireballImage.fillAmount = 0f;
     }
 
     private void Update()
@@ -51,6 +51,7 @@ public class Fireball : MonoBehaviour
 
         Projectile projectile = Instantiate(projectilePrefab, book.position, rot).GetComponent<Projectile>();
         CameraShake.instance.ShakeCamera(1f, .2f);
+        projectile.explosionAngle = angle;
         projectile.projectileVelocity = projectileSpeed;
         projectile.projectileDamage = projectileDamage;
 

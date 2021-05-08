@@ -32,8 +32,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Slider dashSlider;
 
     private Vector3 playerVelocity = Vector3.zero;
-
-    public GameObject DashRune;
     
     private void Awake()
     {
@@ -75,7 +73,6 @@ public class PlayerMovement : MonoBehaviour
         {
             // Creates the particles
             var clone = Instantiate(dashEffect, transform.position, Quaternion.identity); 
-            var dashRune = Instantiate(DashRune, transform.position, Quaternion.identity);
 
             // Verific daca ma lovesc de pereti/obiecte/whatever vrei tu
             Vector3 dashPosition = transform.position + moveDirection * dashSpeed;
@@ -89,7 +86,7 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(blink(dashPosition));
 
             // Imi sterg instanta de gameObject facuta, dupa o secunda;
-            StartCoroutine(SelfDestruct(clone, dashRune));
+            StartCoroutine(SelfDestruct(clone));
 
             isDashButtonDown = false;
             
@@ -129,10 +126,9 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    IEnumerator SelfDestruct(GameObject clone, GameObject dashRune)
+    IEnumerator SelfDestruct(GameObject clone)
     {
         yield return new WaitForSeconds(1f);
         Destroy(clone);
-        Destroy(dashRune);
     }
 }
