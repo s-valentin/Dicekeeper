@@ -10,6 +10,7 @@ TagManager:
   - DiceEvent
   - Test
   - Boss
+  - MiniBoss
   layers:
   - Default
   - TransparentFX
