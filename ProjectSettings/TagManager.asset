@@ -8,6 +8,8 @@ TagManager:
   - Wall
   - range
   - DiceEvent
+  - Test
+  - Boss
   layers:
   - Default
   - TransparentFX

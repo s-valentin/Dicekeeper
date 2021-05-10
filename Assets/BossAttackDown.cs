@@ -2,24 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossAttackUp : MonoBehaviour
+public class BossAttackDown : MonoBehaviour
 {
-    [SerializeField] private float attackDamage = 5f;
 
     public PolygonCollider2D hitCollider;
 
-    public void startAttack()
+    public void startDownAttack()
     {
         hitCollider.gameObject.SetActive(true);
+        Debug.Log("abbba");
         StartCoroutine(disableCollider());
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            collision.gameObject.GetComponent<PlayerHealth>().UpdateHealth(-attackDamage);
-        }
     }
 
     IEnumerator disableCollider()
@@ -27,6 +19,4 @@ public class BossAttackUp : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         hitCollider.gameObject.SetActive(false);
     }
-
-
 }

@@ -8,8 +8,6 @@ public class Projectile : MonoBehaviour
     [HideInInspector] public float projectileDamage;
     [SerializeField] Rigidbody2D rb;
 
-    public float explosionAngle;
-
     public GameObject fireExplosion;
 
     private void Start()
@@ -24,25 +22,44 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        // enemy collision
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             Destroy(gameObject);
             EnemyHealth enemy = collision.gameObject.GetComponent<EnemyHealth>();
             enemy.takeDamage(projectileDamage);
 
-            Quaternion explosionRotation = Quaternion.Euler(new Vector3(0, 0, explosionAngle));
-
             var fireExplosionGFX = Instantiate(fireExplosion, transform.position, transform.rotation); 
             Destroy(fireExplosionGFX, 0.533f);
         }
-        if (collision.gameObject.tag == "Wall")
+        // boss/miniboss collision
+        if (collision.gameObject.CompareTag("Boss"))
+        {
+            Destroy(gameObject);
+            BossHealth boss = collision.gameObject.GetComponent<BossHealth>();
+            boss.takeDamage(projectileDamage);
+
+            var fireExplosionGFX = Instantiate(fireExplosion, transform.position, transform.rotation);
+            Destroy(fireExplosionGFX, 0.533f);
+        }
+        if (collision.gameObject.CompareTag("MiniBoss"))
+        {
+            Destroy(gameObject);
+            MiniBossHealth miniBoss = collision.gameObject.GetComponent<MiniBossHealth>();
+            miniBoss.takeDamage(projectileDamage);
+
+            var fireExplosionGFX = Instantiate(fireExplosion, transform.position, transform.rotation);
+            Destroy(fireExplosionGFX, 0.533f);
+        }
+        // wall collision
+        if (collision.gameObject.CompareTag("Wall"))
         {
             Destroy(gameObject);
         }
-        if (collision.gameObject.tag == "Player")
+        // unnecessary, just in case player collision
+        if (collision.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
-
         }
     }
 

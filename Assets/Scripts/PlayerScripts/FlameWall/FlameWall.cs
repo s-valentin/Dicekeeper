@@ -12,7 +12,7 @@ public class FlameWall : MonoBehaviour
 
     [SerializeField] SpriteRenderer rangeIndicator;
 
-    private float spellPower = 3f;
+    private float spellPower = 20f;
 
     [SerializeField] float fireCooldown = 2f;
     bool isCooldown = false;
@@ -62,14 +62,12 @@ public class FlameWall : MonoBehaviour
         Debug.Log(objectPosition);
         //flameWallGFX.enabled = true;
 
-        float damage = spellPower;
-
         float angle = Utility.AngleTowardsMouse(book.position);
         Quaternion rot = Quaternion.Euler(new Vector3(0f, 0f, angle));
 
         Wall flameWall = Instantiate(flameWallPrefab, objectPosition, rot).GetComponent<Wall>();
         CameraShake.instance.ShakeCamera(.7f, .35f);
-        flameWall.flameWallDamage = damage;
+        flameWall.flameWallDamage = spellPower;
     }
 
     IEnumerator showRange()

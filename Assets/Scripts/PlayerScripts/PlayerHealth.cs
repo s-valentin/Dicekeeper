@@ -42,8 +42,9 @@ public class PlayerHealth : MonoBehaviour
     private void OnGUI()
     {
         // This makes it so that your health slides instead of being chunked out.
-        float time = Time.deltaTime / 1f;
-        healthSlider.value = Mathf.Lerp(healthSlider.value, health, time);      
+        //float time = Time.deltaTime / 1f;
+        //healthSlider.value = Mathf.Lerp(healthSlider.value, health, time);      
+        healthSlider.value = health;
     }
 
 }

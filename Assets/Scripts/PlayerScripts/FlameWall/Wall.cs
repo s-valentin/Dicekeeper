@@ -15,15 +15,28 @@ public class Wall : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        // disable the collider created for a small push effect
         StartCoroutine(disableCollider());
-        if (collision.gameObject.tag == "Enemy")
+
+        // enemy collision
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             EnemyHealth enemy = collision.gameObject.GetComponent<EnemyHealth>();
             enemy.takeDamage(flameWallDamage);
         }
-        if (collision.gameObject.tag == "Wall")
+
+        // boss/miniboss collision
+        if (collision.gameObject.CompareTag("Boss"))
+        {
+            BossHealth boss = collision.gameObject.GetComponent<BossHealth>();
+            boss.takeDamage(flameWallDamage);
+            Debug.Log("aa");
+        }
+        if (collision.gameObject.CompareTag("MiniBoss"))
         {
             Destroy(gameObject);
+            MiniBossHealth miniBoss = collision.gameObject.GetComponent<MiniBossHealth>();
+            miniBoss.takeDamage(flameWallDamage);
         }
     }
 
@@ -33,29 +46,4 @@ public class Wall : MonoBehaviour
         circleCollider2D.enabled = false;
     }
 
-    /*private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Enemy" && !collision.isTrigger)
-        {
-            EnemyHealth enemy = collision.gameObject.GetComponent<EnemyHealth>();
-            enemy.takeDamage(flameWallDamage);
-        }
-        if (collision.gameObject.tag == "Wall")
-        {
-            Destroy(gameObject);
-        }
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Enemy" && !collision.isTrigger)
-        {
-            if (Time.time > nextDamage)
-            {
-                EnemyHealth enemy = collision.gameObject.GetComponent<EnemyHealth>();
-                enemy.takeDamage(flameWallDamage);
-                nextDamage = Time.time + damageFrequency;
-            }
-        }
-    }*/
 }
