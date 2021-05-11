@@ -6,13 +6,14 @@ public class BattleSystem : MonoBehaviour
 {
     private enum State
     {
-        Idle, 
+        Idle,
         Active,
         BattleOver,
     }
 
     [SerializeField] private Wave[] waveArray;
     [SerializeField] private ColliderTrigger colliderTrigger;
+    //private int die = 2;
 
     private State state;
 
@@ -28,8 +29,8 @@ public class BattleSystem : MonoBehaviour
 
     private void ColliderTrigger_OnPlayerEnterTrigger(object sender, System.EventArgs e)
     {
-        if(state == State.Idle)
-        StartBattle();
+        if (state == State.Idle)
+            StartBattle();
         colliderTrigger.OnPlayerEnterTrigger -= ColliderTrigger_OnPlayerEnterTrigger;
     }
 
@@ -48,14 +49,14 @@ public class BattleSystem : MonoBehaviour
                 {
                     wave.Update();
                 }
-                TestBattleOver();   
+                TestBattleOver();
                 break;
         }
     }
 
     private void TestBattleOver()
     {
-        if(state == State.Active)
+        if (state == State.Active)
         {
             if (areWavesOver())
             {
@@ -81,12 +82,12 @@ public class BattleSystem : MonoBehaviour
         return true;
     }
 
-
     [System.Serializable]
     private class Wave
     {
         [SerializeField] private EnemySpawn[] enemySpawnArray;
         [SerializeField] private float timer;
+
 
         public void Update()
         {
@@ -110,11 +111,11 @@ public class BattleSystem : MonoBehaviour
 
         public bool isWaveOver()
         {
-            if(timer < 0)
+            if (timer < 0)
             {
-                foreach(EnemySpawn enemySpawn in enemySpawnArray)
+                foreach (EnemySpawn enemySpawn in enemySpawnArray)
                 {
-                    if(enemySpawn.isAlive())
+                    if (enemySpawn.isAlive())
                     {
                         return false;
                     }
