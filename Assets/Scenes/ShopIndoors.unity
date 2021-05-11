@@ -5043,7 +5043,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 413.7, y: 230.6}
+  m_AnchoredPosition: {x: 307, y: 199.8}
   m_SizeDelta: {x: 21.8948, y: 21.7144}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &259275901
@@ -6961,7 +6961,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 206.00006, y: -382}
+  m_AnchoredPosition: {x: 207, y: -461}
   m_SizeDelta: {x: -485.73, y: -69.481}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &639661077
@@ -10265,8 +10265,8 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 5
-    m_AlignByGeometry: 0
+    m_Alignment: 3
+    m_AlignByGeometry: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
@@ -10296,8 +10296,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 446.84045, y: 229}
-  m_SizeDelta: {x: 95.2674, y: 30}
+  m_AnchoredPosition: {x: 360.62106, y: 199.8}
+  m_SizeDelta: {x: 59.3491, y: 21.716}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1248079322
 GameObject:
@@ -14870,7 +14870,6 @@ MonoBehaviour:
   - {fileID: 1614374794}
   - {fileID: 1369992871}
   - {fileID: 1218271834}
-  ck: {fileID: 2083365772}
   si: {fileID: 1389606184}
 --- !u!61 &2083365767
 BoxCollider2D:
@@ -15161,7 +15160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -15182,9 +15181,9 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 961046708}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
