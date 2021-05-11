@@ -12,7 +12,7 @@ public class ShopTrigger : MonoBehaviour
 
     private void Update()
     {
-        if(isInRange && Input.GetKeyDown(KeyCode.L))
+        if(isInRange && Input.GetKeyDown(KeyCode.E))
         {
             OpenShop();
         }
@@ -42,7 +42,7 @@ public class ShopTrigger : MonoBehaviour
 
     void OpenShop()
     {
-        if (Input.GetKeyDown(KeyCode.L)) {
+        if (Input.GetKeyDown(KeyCode.E)) {
         shopPanel.SetActive(true);
         sellButtons.SetActive(true);
         itAnim.animator.SetBool("open", true);

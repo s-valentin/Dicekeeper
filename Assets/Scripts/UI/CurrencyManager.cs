@@ -102,7 +102,7 @@ public class CurrencyManager : MonoBehaviour
     void Update()
     {
         paymentSlider.value = nextPayment - Time.time;
-        if (Time.time > nextPayment && Input.GetKeyDown(KeyCode.L) && isInRange)
+        if (Time.time > nextPayment && Input.GetKeyDown(KeyCode.E) && isInRange)
         {
             PayLandlord();
             
