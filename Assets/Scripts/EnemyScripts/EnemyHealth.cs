@@ -23,11 +23,18 @@ public class EnemyHealth : MonoBehaviour
     {
         health -= damage;
 
-        if (health <= 0)
+        if (isDead())
         {
             Instantiate(deathEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
+    }
+
+    public bool isDead()
+    {
+        if (health <= 0)
+            return true;
+        return false;
     }
 
     private void OnGUI()
