@@ -7,6 +7,7 @@ public class ShopTrigger : MonoBehaviour
     public GameObject shopPanel;
     public GameObject inventoryPanel;
     public GameObject sellButtons;
+    public GameObject testingButtons;
     public InventoryToggle itAnim;
     bool isInRange;
 
@@ -43,6 +44,7 @@ public class ShopTrigger : MonoBehaviour
     void OpenShop()
     {
         if (Input.GetKeyDown(KeyCode.E)) {
+            testingButtons.SetActive(true);
         shopPanel.SetActive(true);
         sellButtons.SetActive(true);
         itAnim.animator.SetBool("open", true);
@@ -51,6 +53,7 @@ public class ShopTrigger : MonoBehaviour
 
     public void CloseShop()
     {
+        testingButtons.SetActive(false);
         shopPanel.SetActive(false);
         sellButtons.SetActive(false);
         itAnim.animator.SetBool("open", false);

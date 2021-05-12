@@ -183,6 +183,8 @@ GameObject:
   - component: {fileID: 1467866115983031048}
   - component: {fileID: 1467866115983031049}
   - component: {fileID: 1467866115983031041}
+  - component: {fileID: 3707461574085222859}
+  - component: {fileID: 1133570391082945852}
   - component: {fileID: 1467866115983031050}
   m_Layer: 6
   m_Name: Player
@@ -401,6 +403,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   die: {fileID: 0}
+--- !u!114 &3707461574085222859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467866115983031040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b88634053e539964486c096c1e87525b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  inventorySlots: []
+  si: {fileID: 0}
+--- !u!114 &1133570391082945852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467866115983031040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a0b5cb873153104fa7bd882af544e3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Panel: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!95 &1467866115983031050
 Animator:
   serializedVersion: 3

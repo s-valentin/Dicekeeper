@@ -38,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         dashSlider.maxValue = dashCooldown;
         dashSlider.value = dashCooldown;
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
