@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ShopIndoors.unity
     guid: c062fff73a8ffae4cb14bedd5d1933bc
+  - enabled: 1
+    path: Assets/Scenes/Dungeons/DemoScene 1.unity
+    guid: 2a660d5ebbfda6c46b14c60baffa2705
   m_configObjects: {}
