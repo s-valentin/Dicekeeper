@@ -38,4 +38,11 @@ public class MiniBossHealth : MonoBehaviour
     {
         return health;
     }
+
+    public bool isDead()
+    {
+        if (health <= 0)
+            return true;
+        return false;
+    }
 }

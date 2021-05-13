@@ -7411,8 +7411,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 708549728}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.0808666, y: 2.9377587, z: 0.05241394}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 3.0808666, y: 2.8944, z: 0.05241394}
+  m_LocalScale: {x: 1, y: 1.0867062, z: 1}
   m_Children: []
   m_Father: {fileID: 125142089}
   m_RootOrder: 0
@@ -8452,7 +8452,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 871266281}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.0708668, y: 2.0677588, z: 0.05241394}
+  m_LocalPosition: {x: 3.0708668, y: 1.77, z: 0.05241394}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 125142089}
@@ -10252,7 +10252,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.016, y: 0.016250651}
   m_AnchorMax: {x: 0.984, y: 0.9837494}
-  m_AnchoredPosition: {x: 0.000030517578, y: -0.000030517578}
+  m_AnchoredPosition: {x: 0.000061035156, y: -0.000030517578}
   m_SizeDelta: {x: 5.548401, y: 5.6492004}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1216134219
@@ -10872,8 +10872,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1347750413}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.0908668, y: 4.1177588, z: 0.05241394}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 3.0908668, y: 4.1964, z: 0.05241394}
+  m_LocalScale: {x: 1, y: 1.1572, z: 1}
   m_Children: []
   m_Father: {fileID: 125142089}
   m_RootOrder: 2
@@ -12491,7 +12491,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1850696241}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.0908668, y: 5.047759, z: 0.05241394}
+  m_LocalPosition: {x: 3.12, y: 5.38, z: 0.05241394}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 125142089}
@@ -25543,12 +25543,12 @@ GameObject:
   - component: {fileID: 2083365771}
   - component: {fileID: 2083365770}
   - component: {fileID: 2083365769}
-  - component: {fileID: 2083365768}
   - component: {fileID: 2083365767}
   - component: {fileID: 2083365766}
   - component: {fileID: 2083365765}
   - component: {fileID: 2083365772}
   - component: {fileID: 2083365773}
+  - component: {fileID: 2083365768}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -25638,17 +25638,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2083365764}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9864954c2f779384c830c8320a9914f2, type: 3}
+  m_Script: {fileID: 11500000, guid: 48a6f924802acde4d8742bd87991f714, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 2083365773}
-  moveSpeed: 5
-  isDashButtonDown: 0
-  dashLayerMask:
-    serializedVersion: 2
-    m_Bits: 0
-  dashEffect: {fileID: 3113205309374793408, guid: 0eee9baec6fa3e74f8babf6b07b6e099, type: 3}
-  dashSlider: {fileID: 2102062915}
+  moveSpeed: 6
 --- !u!50 &2083365769
 Rigidbody2D:
   serializedVersion: 4
