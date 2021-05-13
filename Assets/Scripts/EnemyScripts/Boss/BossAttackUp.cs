@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossAttackUp : MonoBehaviour
 {
-    [SerializeField] private float attackDamage = 5f;
+    public float attackDamage = 15f;
 
     public PolygonCollider2D hitCollider;
 
@@ -29,4 +29,8 @@ public class BossAttackUp : MonoBehaviour
     }
 
 
+    public void updateDamage(float damage)
+    {
+        attackDamage += damage;
+    }
 }

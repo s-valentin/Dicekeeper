@@ -12,7 +12,6 @@ public class BossMovement : StateMachineBehaviour
     public float speed = 4f;
     public float attackRange = 1.7f;
     private float attackDirection;
-    private EnemyHealth bossHealth;
 
     public float teleportCooldown = 5f;
     private float nextTeleport = 0;
@@ -22,7 +21,6 @@ public class BossMovement : StateMachineBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = animator.GetComponent<Rigidbody2D>();
         boss = animator.GetComponent<Transform>();
-        bossHealth = animator.GetComponent<EnemyHealth>();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

@@ -539,7 +539,7 @@ GameObject:
   m_Component:
   - component: {fileID: 223002579}
   - component: {fileID: 223002578}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -890,10 +890,10 @@ MonoBehaviour:
     - {fileID: 959547147}
     timer: 2
   - enemySpawnArray:
-    - {fileID: 393946265}
+    - {fileID: 1284924611}
     timer: 5
   - enemySpawnArray:
-    - {fileID: 1284924611}
+    - {fileID: 393946265}
     timer: 25
   colliderTrigger: {fileID: 1850105154}
 --- !u!1 &509297013
@@ -1633,7 +1633,7 @@ GameObject:
   - component: {fileID: 753098255}
   m_Layer: 9
   m_Name: Walls
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

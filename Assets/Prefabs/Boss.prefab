@@ -270,7 +270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7db284f33ee67b74c90591c03c493766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 5
+  attackDamage: 10
   hitCollider: {fileID: 5651311944955355775}
 --- !u!114 &1976750360468048883
 MonoBehaviour:
@@ -298,7 +298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 0
+  maxHealth: 250
   slider: {fileID: 4707415311461322032}
 --- !u!114 &9060676414855662179
 MonoBehaviour:

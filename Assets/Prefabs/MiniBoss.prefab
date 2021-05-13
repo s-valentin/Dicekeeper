@@ -349,7 +349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7db284f33ee67b74c90591c03c493766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 5
+  attackDamage: 7.5
   hitCollider: {fileID: 1221969951963871615}
 --- !u!114 &5041465928469926131
 MonoBehaviour:
@@ -377,7 +377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 0
+  maxHealth: 150
   slider: {fileID: 2291250562431096368}
 --- !u!1 &5593613090175805687
 GameObject:

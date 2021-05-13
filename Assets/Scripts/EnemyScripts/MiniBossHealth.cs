@@ -3,11 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MiniBossHealth : MonoBehaviour
+public class MiniBossHealth : EnemyHealth
 {
-    [SerializeField] private float health;
-    [SerializeField] private float maxHealth;
-    [SerializeField] private Slider slider;
 
     private Animator animator;
 
@@ -19,7 +16,7 @@ public class MiniBossHealth : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    public void takeDamage(float damage)
+    public new void takeDamage(float damage)
     {
         health -= damage;
 
@@ -39,10 +36,4 @@ public class MiniBossHealth : MonoBehaviour
         return health;
     }
 
-    public bool isDead()
-    {
-        if (health <= 0)
-            return true;
-        return false;
-    }
 }

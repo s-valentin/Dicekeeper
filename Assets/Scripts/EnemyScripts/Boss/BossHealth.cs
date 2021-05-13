@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BossHealth : MonoBehaviour
+public class BossHealth : EnemyHealth
 {
-    [SerializeField] private float health;
-    [SerializeField] private float maxHealth;
-    [SerializeField] private Slider slider;
+    //[SerializeField] private float health;
+    //[SerializeField] private float maxHealth;
+    //[SerializeField] private Slider slider;
     private SpriteRenderer spriteRenderer;
 
     private Animator animator;
@@ -21,7 +21,7 @@ public class BossHealth : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    public void takeDamage(float damage)
+    public new void takeDamage(float damage)
     {
         health -= damage;
 
@@ -33,6 +33,7 @@ public class BossHealth : MonoBehaviour
 
         if(health <= maxHealth / 2)
         {
+            GetComponent<BossAttackUp>().updateDamage(10f);
             animator.SetBool("IsStageTwo", true);
             spriteRenderer.color = Color.red;
         }
