@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Health Potion
   m_EditorClassIdentifier: 
   itemName: Health Potion
-  itemDescription: Heals player or whatever
-  icon: {fileID: 21300000, guid: 0a329ad317015b9499cdb500f4dc8651, type: 3}
+  itemDescription: It's a health potion
+  icon: {fileID: -8501196196383545542, guid: 5084a23829b5daf4693d91b588886b00, type: 3}
   price: 50
   type: 1

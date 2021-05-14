@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShopInventory : MonoBehaviour
 {
 
-    public Item[] itemList = new Item[8];
+    public Item[] itemList = new Item[32];
     public List<ShopInventorySlots> shopInventorySlots = new List<ShopInventorySlots>();
     public CurrencyManager ck;
 
@@ -22,6 +22,18 @@ public class ShopInventory : MonoBehaviour
             {
                 itemList[i] = item;
                 shopInventorySlots[i].item = item;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public bool HasOpenSlots()
+    {
+        for(int i = 0; i < itemList.Length; i++)
+        {
+            if(itemList[i] == null)
+            {
                 return true;
             }
         }

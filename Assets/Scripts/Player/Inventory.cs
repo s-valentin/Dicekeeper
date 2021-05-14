@@ -39,6 +39,10 @@ public class Inventory : MonoBehaviour
         {
             UpdateSlotUI();
         }
+        else
+        {
+            Debug.Log("Player inventory is full.");
+        }
     }
 
 
@@ -71,7 +75,7 @@ public class Inventory : MonoBehaviour
     {
         for (int i = 0; i < itemList.Length; i++)
         {
-            if (itemList[i] != null && i == index)
+            if (itemList[i] != null && i == index && si.HasOpenSlots())
             {
                 si.AddItem(itemList[i]);
                 itemList[i] = null;
@@ -84,11 +88,16 @@ public class Inventory : MonoBehaviour
 
     public void SellItem(int index)
     {
+        
         bool hasBeenSold = Sell(index);
 
         if (hasBeenSold)
         {
             UpdateSlotUI();
+        }
+        else
+        {
+            Debug.Log("Shop inventory is full.");
         }
     }
     

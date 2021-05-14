@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000017344966, y: -0.009399761}
-  m_SizeDelta: {x: 4.3139, y: 1.2957}
+  m_AnchoredPosition: {x: -0.000017344966, y: -0.00001251}
+  m_SizeDelta: {x: 4.3139, y: 0.91738}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7253192872682605678
 CanvasRenderer:
@@ -99,8 +99,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -268,7 +268,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000010073234, y: 0.826}
+  m_AnchoredPosition: {x: 0.000000059654, y: 0.64628}
   m_SizeDelta: {x: 4.314, y: 0.3752}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7253192873348095189
@@ -334,7 +334,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -568,7 +568,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.4, y: -0.85}
+  m_AnchoredPosition: {x: 1.4277, y: -0.32196}
   m_SizeDelta: {x: 1.4585, y: 0.27349}
   m_Pivot: {x: 0.49999997, y: 0.5}
 --- !u!222 &7253192873488065666
@@ -702,8 +702,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000014961, y: -0.00000016391}
-  m_SizeDelta: {x: 4.314, y: 2.0273}
+  m_AnchoredPosition: {x: 0.000014961, y: -0.555}
+  m_SizeDelta: {x: 4.314, y: 0.9174}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7253192873494351604
 CanvasRenderer:
@@ -726,7 +726,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.75915253, b: 0, a: 0.16470589}
+  m_Color: {r: 0.67856115, g: 1, b: 0.0037735105, a: 0.16470589}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

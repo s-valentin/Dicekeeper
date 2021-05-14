@@ -14,12 +14,26 @@ public class Pickup : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(CheckIfInventoryHasOpenSlots())
             if (collision.CompareTag("Player"))
             {
                 inventory.AddItem(item);
                 Destroy(gameObject);
             }
         }
+
+    public bool CheckIfInventoryHasOpenSlots()
+    {
+        
+        for (int i = 0; i < inventory.inventorySlots.Count; i++)
+        {
+            if (inventory.inventorySlots[i].item == null)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 
 }
 
