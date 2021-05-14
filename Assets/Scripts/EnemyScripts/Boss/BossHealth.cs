@@ -27,6 +27,7 @@ public class BossHealth : EnemyHealth
 
         if (health <= 0)
         {
+            GetComponent<BoxCollider2D>().enabled = false;
             animator.SetTrigger("Death");
             Destroy(gameObject, 2.25f);
         }
