@@ -3036,11 +3036,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5788141044414568978, guid: 084d261e704bb714ebb3d009cd075ef1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.960978
+      value: 5.62
       objectReference: {fileID: 0}
     - target: {fileID: 5788141044414568978, guid: 084d261e704bb714ebb3d009cd075ef1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.1871767
+      value: 1.56
       objectReference: {fileID: 0}
     - target: {fileID: 5788141044414568978, guid: 084d261e704bb714ebb3d009cd075ef1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3086,6 +3086,38 @@ PrefabInstance:
       propertyPath: dialogueManager
       value: 
       objectReference: {fileID: 296734487}
+    - target: {fileID: 5788141044414569069, guid: 084d261e704bb714ebb3d009cd075ef1, type: 3}
+      propertyPath: badDialogue.name
+      value: Angry Buffed Guy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5788141044414569069, guid: 084d261e704bb714ebb3d009cd075ef1, type: 3}
+      propertyPath: goodDialogue.name
+      value: Buffed Guy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5788141044414569069, guid: 084d261e704bb714ebb3d009cd075ef1, type: 3}
+      propertyPath: badDialogue.sentences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5788141044414569069, guid: 084d261e704bb714ebb3d009cd075ef1, type: 3}
+      propertyPath: dialogue.sentences.Array.data[0]
+      value: I have swords. And no brain.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5788141044414569069, guid: 084d261e704bb714ebb3d009cd075ef1, type: 3}
+      propertyPath: dialogue.sentences.Array.data[1]
+      value: You have less brain then I. Me do not like you
+      objectReference: {fileID: 0}
+    - target: {fileID: 5788141044414569069, guid: 084d261e704bb714ebb3d009cd075ef1, type: 3}
+      propertyPath: goodDialogue.sentences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5788141044414569069, guid: 084d261e704bb714ebb3d009cd075ef1, type: 3}
+      propertyPath: badDialogue.sentences.Array.data[0]
+      value: You don't deserve my brain. Or my swords.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5788141044414569069, guid: 084d261e704bb714ebb3d009cd075ef1, type: 3}
+      propertyPath: goodDialogue.sentences.Array.data[0]
+      value: I have swords. And a brain. And I lied about one of them
+      objectReference: {fileID: 0}
     - target: {fileID: 5788141044423012289, guid: 084d261e704bb714ebb3d009cd075ef1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -3751,7 +3783,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1077290681}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.01, y: -4.11, z: -13}
+  m_LocalPosition: {x: 0.49, y: -1.83, z: -13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -6021,8 +6053,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reputation: 0
-  minReputation: -100
-  maxReputation: 100
+  minReputation: -20
+  maxReputation: 20
   type: 2
   gainedReputation: 0
   inventory: {fileID: 0}
@@ -45922,6 +45954,30 @@ PrefabInstance:
       propertyPath: dialogueManager
       value: 
       objectReference: {fileID: 390677126}
+    - target: {fileID: 6107819709200854139, guid: 63942c90ccde54b4e8407d8874b72bc1, type: 3}
+      propertyPath: badDialogue.name
+      value: Potty the Mad Pottyioner
+      objectReference: {fileID: 0}
+    - target: {fileID: 6107819709200854139, guid: 63942c90ccde54b4e8407d8874b72bc1, type: 3}
+      propertyPath: goodDialogue.name
+      value: Potty the Pottyioner
+      objectReference: {fileID: 0}
+    - target: {fileID: 6107819709200854139, guid: 63942c90ccde54b4e8407d8874b72bc1, type: 3}
+      propertyPath: badDialogue.sentences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6107819709200854139, guid: 63942c90ccde54b4e8407d8874b72bc1, type: 3}
+      propertyPath: goodDialogue.sentences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6107819709200854139, guid: 63942c90ccde54b4e8407d8874b72bc1, type: 3}
+      propertyPath: badDialogue.sentences.Array.data[0]
+      value: Drink all the yellow pots. They are not poisoned
+      objectReference: {fileID: 0}
+    - target: {fileID: 6107819709200854139, guid: 63942c90ccde54b4e8407d8874b72bc1, type: 3}
+      propertyPath: goodDialogue.sentences.Array.data[0]
+      value: DO NOT DRINK YELLOW POTS!
+      objectReference: {fileID: 0}
     - target: {fileID: 6107819709209156049, guid: 63942c90ccde54b4e8407d8874b72bc1, type: 3}
       propertyPath: m_Name
       value: AContinueButton
@@ -46293,11 +46349,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5222538303337076668, guid: 0594367b667464444a6779d989ea93c8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.01
+      value: 0.49
       objectReference: {fileID: 0}
     - target: {fileID: 5222538303337076668, guid: 0594367b667464444a6779d989ea93c8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.11
+      value: -1.83
       objectReference: {fileID: 0}
     - target: {fileID: 5222538303337076668, guid: 0594367b667464444a6779d989ea93c8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -46446,11 +46502,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4394555153602095652, guid: 13e3a05658a40144e95bfa33180692ae, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.01
+      value: 0.49
       objectReference: {fileID: 0}
     - target: {fileID: 4394555153602095652, guid: 13e3a05658a40144e95bfa33180692ae, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.11
+      value: -1.83
       objectReference: {fileID: 0}
     - target: {fileID: 4394555153602095652, guid: 13e3a05658a40144e95bfa33180692ae, type: 3}
       propertyPath: m_LocalPosition.z
