@@ -31,12 +31,15 @@ public class ReputationManager : MonoBehaviour
     private int priceModifierGood = 20;
     private int priceModifierBad = 20;
 
+    private NPCDialogue dialogue;
+
     private void Start()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         rollDie = player.GetComponent<RollDie>();
         inventory = player.GetComponent<Inventory>();
         currencyManager = player.GetComponent<CurrencyManager>();
+        dialogue = GetComponent<NPCDialogue>();
     }
 
     public bool checkItemProperty(int index)
@@ -102,6 +105,12 @@ public class ReputationManager : MonoBehaviour
         {
             priceModifierBad = 80;
             priceModifierGood = 0;
+            dialogue.isAngry = true;
+        }
+
+        if (reputation == 0)
+        {
+            dialogue.isAngry = false;
         }
 
         if(reputation > maxReputation / 2)
@@ -110,7 +119,7 @@ public class ReputationManager : MonoBehaviour
             priceModifierBad = 10;
         }
 
-        if (reputation > maxReputation)
+        if (reputation >= maxReputation)
         {
             reputation = maxReputation;
             SpawnLegendaryItem();
@@ -121,7 +130,7 @@ public class ReputationManager : MonoBehaviour
     {
         if (!hasGivenItem)
         {
-            Vector3 position = new Vector3(transform.position.x + 1, transform.position.y - 1, transform.position.z);
+            Vector3 position = new Vector3(transform.position.x + -1, transform.position.y - 1, transform.position.z);
             Instantiate(legendaryItem, position, Quaternion.identity);
             hasGivenItem = true;
         }
@@ -144,7 +153,7 @@ public class ReputationManager : MonoBehaviour
             {
                 // 4 iteme bune = 20 rep. dai 6 => 20 + 20*6/10 = 32 reputatie
                 // 2 iteme bune, 2 rele = -10 rep. dai 6 => -10 + (-10) * 6/10 = -16 reputatie; 
-                 
+
                 gainedReputation += (gainedReputation * rollDie.getDieResult()) / 10;
                 rolledDie = false;
             }

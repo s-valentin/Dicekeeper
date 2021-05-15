@@ -6,9 +6,12 @@ using UnityEngine.UI;
 public class NPCDialogue : MonoBehaviour
 {
 
-    public Dialogue dialogue;
+    public Dialogue badDialogue;
+    public Dialogue goodDialogue;
     public Canvas canvas;
     public DialogueManager dialogueManager;
+
+    public bool isAngry = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -26,6 +29,8 @@ public class NPCDialogue : MonoBehaviour
 
     public void TriggerDialogue()
     {
-        dialogueManager.startDialogue(dialogue);
+        if (!isAngry)
+            dialogueManager.startDialogue(goodDialogue);
+        else dialogueManager.startDialogue(badDialogue);
     }
 }
