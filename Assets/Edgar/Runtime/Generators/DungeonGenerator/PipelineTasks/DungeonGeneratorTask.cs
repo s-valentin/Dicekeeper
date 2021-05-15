@@ -9,9 +9,11 @@ using UnityEngine;
 namespace Edgar.Unity
 {
     /// <summary>
-    /// The actual generator logic that calls the .NET generator.
+    /// The actual generator logic that call the .NET generator.
     /// </summary>
-    public class DungeonGeneratorTask : PipelineTask<DungeonGeneratorPayload>
+    /// <typeparam name="TPayload"></typeparam>
+    public class DungeonGeneratorTask<TPayload> : PipelineTask<TPayload>
+        where TPayload : class, IGraphBasedGeneratorPayload, IRandomGeneratorPayload, IBenchmarkInfoPayload
     {
         private readonly DungeonGeneratorConfig config;
 
@@ -104,7 +106,7 @@ namespace Edgar.Unity
             Debug.Log($"Layout generated in {stats.TimeTotal / 1000f:F} seconds");
             Debug.Log($"{stats.Iterations} iterations needed, {stats.Iterations / (stats.TimeTotal / 1000d):0} iterations per second");
 
-            Payload.GeneratedLevel = generatedLevel;
+            ((IGraphBasedGeneratorPayload) Payload).GeneratedLevel = generatedLevel;
             Payload.GeneratorStats = stats;
 
             yield return null;

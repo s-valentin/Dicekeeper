@@ -10,7 +10,8 @@ namespace Edgar.Unity
     /// Creates an input for the generator from a given level graph.
     /// </summary>
     /// <typeparam name="TPayload"></typeparam>
-    public class FixedLevelGraphInputTask : PipelineTask<DungeonGeneratorPayload>
+    public class FixedLevelGraphInputTask<TPayload> : PipelineTask<TPayload>
+        where TPayload : class, IGraphBasedGeneratorPayload
     {
         private readonly FixedLevelGraphConfig config;
 

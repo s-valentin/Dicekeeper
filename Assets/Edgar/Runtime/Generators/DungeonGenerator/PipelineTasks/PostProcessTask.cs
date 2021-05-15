@@ -8,7 +8,9 @@ namespace Edgar.Unity
     /// <summary>
     /// Handles individual post-processing steps.
     /// </summary>
-    public class PostProcessTask : PipelineTask<DungeonGeneratorPayload>
+    /// <typeparam name="TPayload"></typeparam>
+    public class PostProcessTask<TPayload> : PipelineTask<TPayload>
+        where TPayload : class, IGraphBasedGeneratorPayload, IRandomGeneratorPayload
     {
         private readonly PostProcessConfig config;
         private readonly Func<ITilemapLayersHandler> defaultTilemapLayersHandlerFactory;
