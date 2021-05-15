@@ -10,21 +10,38 @@ public class RollDie : MonoBehaviour
 
     [SerializeField] private Image die;
 
+    [SerializeField] private Image dieCooldown;
+
+    private float rollCooldown = 10f;
+
     private bool isNecessary = false;
 
     private int dieResult = 0;
+
+    private bool isCooldown = false;
    
     private void Start()
     {
         dieSides = Resources.LoadAll<Sprite>("DieSides/");
+        dieCooldown.fillAmount = 0f;
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R) && isNecessary)
-        {
-            StartCoroutine(rollDie());
-        }
+            if (Input.GetKeyDown(KeyCode.R) && isNecessary && !isCooldown)
+            {
+                isCooldown = true;
+                dieCooldown.fillAmount = 1f;
+                StartCoroutine(rollDie());
+            }
+            else if (isCooldown)
+            {
+                dieCooldown.fillAmount -= 1f / rollCooldown * Time.deltaTime;
+                if (dieCooldown.fillAmount == 0f)
+                {
+                    isCooldown = false;
+                }
+            }
     }
 
     IEnumerator rollDie()
@@ -38,8 +55,10 @@ public class RollDie : MonoBehaviour
 
             yield return new WaitForSeconds(0.1f);
         }
+        dieCooldown.sprite = die.sprite;
 
         dieResult = randomDieSide + 1;
+        Debug.Log(dieResult);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -59,5 +78,10 @@ public class RollDie : MonoBehaviour
     public int getDieResult()
     {
         return dieResult;
+    }
+
+    public bool getCooldown()
+    {
+        return isCooldown;
     }
 }
