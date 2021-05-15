@@ -478,6 +478,14 @@ MonoBehaviour:
   maxHealth: 200
   slider: {fileID: 1847806544630814459}
   deathEffect: {fileID: 1031663247285829282, guid: 65db144723d277a49beb215ecbca765f, type: 3}
+  items:
+  - {fileID: 7103237604363312020, guid: 0eb02e94f8bc1274898ce99f4abdd7c6, type: 3}
+  - {fileID: 7213203636659335645, guid: b9bfde0e6eae75c45b5cae410b3bcd9d, type: 3}
+  - {fileID: 2865893008066485850, guid: 03cf6b2b787d1394c94ee0edca73dc49, type: 3}
+  - {fileID: 514701419887425232, guid: a09af72c3d7b6384cb54b11fca453efd, type: 3}
+  - {fileID: 0}
+  - {fileID: 3497646075221931323, guid: 032ceb372fcf75c4b94d3bd2ca138075, type: 3}
+  - {fileID: 6689430872803366088, guid: 68159dd06cd292347ab34113565482b2, type: 3}
 --- !u!114 &1847806545211541962
 MonoBehaviour:
   m_ObjectHideFlags: 0

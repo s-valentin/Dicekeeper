@@ -108,7 +108,7 @@ public class ReputationManager : MonoBehaviour
             dialogue.isAngry = true;
         }
 
-        if (reputation == 0)
+        if (reputation >= 0)
         {
             dialogue.isAngry = false;
         }
