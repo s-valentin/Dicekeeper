@@ -28,6 +28,9 @@ public class ReputationManager : MonoBehaviour
 
     private CurrencyManager currencyManager;
 
+    private int priceModifierGood = 20;
+    private int priceModifierBad = 20;
+
     private void Start()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -43,15 +46,16 @@ public class ReputationManager : MonoBehaviour
         {
             if (inventory.itemList[i] != null && i == index)
             {
+                int price = (int)inventory.itemList[i].price;
                 if (inventory.itemList[i].type == type)
                 {
                     IncreaseReputation();
-                    currencyManager.AddCoin(inventory.itemList[i].price - 50);
+                    currencyManager.AddCoin(price - (price * priceModifierBad / 100));
                 }
                 else
                 {
                     DecreaseReputation();
-                    currencyManager.AddCoin(inventory.itemList[i].price + 50);
+                    currencyManager.AddCoin(price + (price * priceModifierGood / 100 ));
                 }
                 
                 inventory.itemList[i] = null;
@@ -90,7 +94,21 @@ public class ReputationManager : MonoBehaviour
         reputation += gainedReputation;
 
         if (reputation < minReputation)
+        {
             reputation = minReputation;
+        }
+
+        if(reputation < maxReputation / 2)
+        {
+            priceModifierBad = 80;
+            priceModifierGood = 0;
+        }
+
+        if(reputation > maxReputation / 2)
+        {
+            priceModifierGood = 50;
+            priceModifierBad = 10;
+        }
 
         if (reputation > maxReputation)
         {

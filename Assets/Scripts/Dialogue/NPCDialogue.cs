@@ -8,6 +8,7 @@ public class NPCDialogue : MonoBehaviour
 
     public Dialogue dialogue;
     public Canvas canvas;
+    public DialogueManager dialogueManager;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -25,6 +26,6 @@ public class NPCDialogue : MonoBehaviour
 
     public void TriggerDialogue()
     {
-        DialogueManager.instance.startDialogue(dialogue);
+        dialogueManager.startDialogue(dialogue);
     }
 }

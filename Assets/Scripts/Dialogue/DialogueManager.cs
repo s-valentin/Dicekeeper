@@ -10,13 +10,11 @@ public class DialogueManager : MonoBehaviour
 
     public TMP_Text nameText;
     public TMP_Text dialogueText;
-    public static DialogueManager instance { get; private set; }
 
     private Queue<string> sentences;
 
     void Start()
     {
-        instance = this;
         sentences = new Queue<string>();
     }
 
@@ -43,6 +41,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         string sentence = sentences.Dequeue();
+        Debug.Log("black");
         //dialogueText.text = sentence;
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
