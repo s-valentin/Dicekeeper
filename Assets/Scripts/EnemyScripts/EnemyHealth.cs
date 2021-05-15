@@ -11,6 +11,8 @@ public class EnemyHealth : MonoBehaviour
 
     public GameObject deathEffect;
 
+    public GameObject[] items;
+
 
     private void Start()
     {
@@ -27,7 +29,14 @@ public class EnemyHealth : MonoBehaviour
         {
             Instantiate(deathEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
+            dropItem();
         }
+    }
+
+    private void dropItem()
+    {
+        int number = Random.Range(0, 7);
+        Instantiate(items[number], transform.position, Quaternion.identity);
     }
 
     public bool isDead()

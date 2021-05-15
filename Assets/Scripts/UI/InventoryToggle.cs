@@ -5,17 +5,17 @@ using UnityEngine;
 public class InventoryToggle : MonoBehaviour
 {
     
-    public GameObject Panel;
+    public Canvas canvas;
     public Animator animator;
 
     private void Start()
     {
-        animator = Panel.GetComponent<Animator>();
+        animator = canvas.GetComponent<Animator>();
     }
     public void OpenInventory()
     {
         
-        if(Panel != null)
+        if(canvas != null)
         {
             
             if(animator != null)
