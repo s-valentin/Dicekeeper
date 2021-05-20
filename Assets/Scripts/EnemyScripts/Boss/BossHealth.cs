@@ -34,7 +34,7 @@ public class BossHealth : EnemyHealth
 
         if(health <= maxHealth / 2)
         {
-            GetComponent<BossAttackUp>().updateDamage(10f);
+            GetComponent<BossAttackUp>().updateDamage(2f);
             animator.SetBool("IsStageTwo", true);
             spriteRenderer.color = Color.red;
         }
