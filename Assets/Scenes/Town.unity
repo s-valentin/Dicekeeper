@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!95 &36937115 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8908893192290412454, guid: 142b7d96a8e42f043943cf321ddc87d7, type: 3}
+  m_PrefabInstance: {fileID: 1251783316}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &55822978 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8908893191412262296, guid: 142b7d96a8e42f043943cf321ddc87d7, type: 3}
@@ -46820,6 +46825,10 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 1251783317}
+    - target: {fileID: 4394555153602095658, guid: 13e3a05658a40144e95bfa33180692ae, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 36937115}
     - target: {fileID: 4394555153602095659, guid: 13e3a05658a40144e95bfa33180692ae, type: 3}
       propertyPath: m_Name
       value: PlayerInTown
@@ -79646,6 +79655,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1398962258}
     - target: {fileID: 7253192873479754028, guid: fc9e77f6c25d6254d810ca92f622f722, type: 3}
+      propertyPath: goodDialogue.name
+      value: DungeonKeeper
+      objectReference: {fileID: 0}
+    - target: {fileID: 7253192873479754028, guid: fc9e77f6c25d6254d810ca92f622f722, type: 3}
       propertyPath: dialogue.sentences.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -79657,6 +79670,18 @@ PrefabInstance:
       propertyPath: dialogue.sentences.Array.data[1]
       value: The path ahead is treacherous. Many have wandered inside, but none have
         come out alive
+      objectReference: {fileID: 0}
+    - target: {fileID: 7253192873479754028, guid: fc9e77f6c25d6254d810ca92f622f722, type: 3}
+      propertyPath: goodDialogue.sentences.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7253192873479754028, guid: fc9e77f6c25d6254d810ca92f622f722, type: 3}
+      propertyPath: goodDialogue.sentences.Array.data[0]
+      value: 'Enter my lair, if you dare. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 7253192873479754028, guid: fc9e77f6c25d6254d810ca92f622f722, type: 3}
+      propertyPath: goodDialogue.sentences.Array.data[1]
+      value: And if you don't, you're in for a scare!
       objectReference: {fileID: 0}
     - target: {fileID: 7253192873479754029, guid: fc9e77f6c25d6254d810ca92f622f722, type: 3}
       propertyPath: m_Radius

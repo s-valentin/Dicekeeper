@@ -10,7 +10,7 @@ public class InventoryToggle : MonoBehaviour
 
     private void Start()
     {
-        animator = canvas.GetComponent<Animator>();
+        //animator = canvas.GetComponent<Animator>();
     }
     public void OpenInventory()
     {
